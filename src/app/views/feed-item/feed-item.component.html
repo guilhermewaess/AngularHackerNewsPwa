@@ -1,3 +1,16 @@
-<div *ngIf="item | async as item">
-  {{item | json}}
+<div *ngIf="item | async as item" class="feed-item">
+  <mat-card class="main-card">
+    <mat-card-content>
+      <mat-grid-list cols="6" rowHeight="80px" gutterSize="10px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <button mat-fab color="primary">{{item.score}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="5" color="primary">
+          <mat-card class="content-card mat-primary">
+            {{item.time}}
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
 </div>
