@@ -1,12 +1,12 @@
 <div *ngIf="item | async as item" class="feed-item">
   <mat-card class="main-card">
     <mat-card-content>
-      <mat-grid-list cols="6" rowHeight="80px" gutterSize="10px">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <button mat-fab color="primary">{{item.score}}</button>
+      <mat-grid-list cols="8" rowHeight="80px" gutterSize="10px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1" class="bg-color-primary">
+          <button mat-fab color="">{{item.score}}</button>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="5" color="primary">
-          <mat-card class="content-card mat-primary">
+        <mat-grid-tile [colspan]="7">
+          <mat-card class="content-card">
             {{item.time}}
           </mat-card>
         </mat-grid-tile>
