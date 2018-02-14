@@ -1,16 +1,29 @@
 <div *ngIf="item | async as item" class="feed-item">
-  <mat-card class="main-card">
-    <mat-card-content>
-      <mat-grid-list cols="8" rowHeight="80px" gutterSize="10px">
-        <mat-grid-tile [colspan]="1" [rowspan]="1" class="bg-color-primary">
-          <button mat-fab color="">{{item.score}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="7">
-          <mat-card class="content-card">
-            {{item.time}}
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card-content>
-  </mat-card>
+  <a [attr.href]="item.url" target="_blank">
+    <mat-card class="main-card">
+      <mat-card-content>
+        <mat-grid-list cols="8" rowHeight="80px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1" class="bg-color-primary">
+            <button mat-fab color="">{{item.score}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="7">
+            <mat-card class="feed-content">
+              <mat-card-header>
+                <mat-card-title>
+                  <b>
+                    <p class="feed-title">{{item.title}}</p>
+                  </b>
+                </mat-card-title>
+                <mat-card-content>
+                  <span>by: {{ item.by }}</span>
+                  |
+                  <span>Comments: {{item.kids?.length}}</span>
+                </mat-card-content>
+              </mat-card-header>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </a>
 </div>
