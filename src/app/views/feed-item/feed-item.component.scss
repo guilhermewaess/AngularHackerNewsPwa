@@ -4,6 +4,16 @@
     margin: auto;
     width: 50%;
 
+    a{
+        color: $primary-color;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #f60;
+        transition: color 500ms ease;
+    }
+
     .main-card{
         margin: 10px auto 10px auto;
         padding: 0 !important;
@@ -24,6 +34,9 @@
 
         .mat-card-content{
             margin: 0px 8px;
+            a{
+                font-weight: bolder;
+            }
         }
     }
 }
