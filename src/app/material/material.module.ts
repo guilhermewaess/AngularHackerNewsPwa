@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
+  MatBadgeModule,
   MatButtonModule,
   MatChipsModule,
   MatCardModule,
@@ -12,6 +13,7 @@ import {
 
 @NgModule({
   exports: [
+    MatBadgeModule,
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
