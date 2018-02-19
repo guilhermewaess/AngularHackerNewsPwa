@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FeedComponent } from './views/feed/feed.component';
+import { UserDetailComponent } from './views/user-detail/user-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'new', pathMatch: 'full' },
@@ -10,7 +11,7 @@ const routes: Routes = [
   { path: 'show', data: { feed: 'showstories' }, component: FeedComponent },
   { path: 'jobs', data: { feed: 'jobstories' }, component: FeedComponent },
   // { path: 'item/:id', component: StoryDetailComponent },
-  // { path: 'user/:id', component: UserDetailComponent },
+  { path: 'user/:userId', component: UserDetailComponent },
 ];
 
 @NgModule({

@@ -18,11 +18,11 @@
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <a [routerLink]="['/hn/user', item.by]">
+              <a [routerLink]="['/user', item.by]">
                 <span>by: {{ item.by }}</span>
               </a>
               |
-              <a [routerLink]="['/hn/user', item.by]">
+              <a [routerLink]="['/user', item.by]">
                 <span [matBadge]="item.kids?.length || 0" matBadgeOverlap="false" matBadgePosition="above after">Comments</span>
               </a>
             </mat-card-content>

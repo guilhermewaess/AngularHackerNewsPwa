@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatBadgeModule,
   MatButtonModule,
@@ -13,6 +14,7 @@ import {
 
 @NgModule({
   exports: [
+    FlexLayoutModule,
     MatBadgeModule,
     MatButtonModule,
     MatCardModule,

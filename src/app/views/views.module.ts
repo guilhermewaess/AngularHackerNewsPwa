@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HackerNewsService } from '../services/hacker-news.service';
 import { FeedItemComponent } from './feed-item/feed-item.component';
 import { MaterialModule } from '../material/material.module';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { MaterialModule } from '../material/material.module';
     AngularFireModule.initializeApp({ databaseURL: 'https://hacker-news.firebaseio.com' }),
     AngularFireDatabaseModule,
   ],
-  declarations: [FeedComponent, FeedItemComponent],
+  declarations: [FeedComponent, FeedItemComponent, UserDetailComponent],
   providers: [HackerNewsService]
 })
 export class ViewsModule { }

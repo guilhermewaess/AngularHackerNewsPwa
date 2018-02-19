@@ -1,0 +1,28 @@
+<div *ngIf="user | async as user" 
+     fxLayout="row" 
+     fxLayoutAlign="center center" 
+     class="user-detail">
+  <mat-card fxFlex="40" class="card mat-elevation-z24">
+    <mat-card-header class="bg-color-primary card-header">
+      <mat-card-title fxLayout="row">
+        <mat-icon>face</mat-icon>
+        <h3>{{ user.id }}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="user-data">
+      <div fxLayout="row" class="data">
+        <b>Karma:</b> {{ user.karma }}
+      </div>
+      <div fxLayout="row" class="data">
+        <b>Creation Date:</b> {{ user.created }}
+      </div>
+      <div fxLayout="row" class="data">
+        <b>Submitted:</b> {{ user.submitted.length }}
+      </div>
+    </mat-card-content>
+    <mat-card-content class="bg-color-primary card-footer">
+      <mat-card-title>About</mat-card-title>
+      <mat-card-subtitle [innerHTML]="user.about"></mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>

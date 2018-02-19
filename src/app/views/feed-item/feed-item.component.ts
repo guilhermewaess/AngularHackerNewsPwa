@@ -15,7 +15,7 @@ export class FeedItemComponent implements OnInit {
   constructor(private hackerNewsService: HackerNewsService) { }
 
   ngOnInit() {
-    this.getItem()
+    this.getItem();
   }
 
   private getItem() {
