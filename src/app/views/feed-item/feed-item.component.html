@@ -1,12 +1,30 @@
 <div *ngIf="item | async as item" class="feed-item">
-
-  <mat-card class="main-card">
-    <mat-card-content>
-      <mat-grid-list cols="8" rowHeight="80px">
-        <mat-grid-tile [colspan]="1" [rowspan]="1" class="bg-color-primary">
-          <button mat-fab color="">{{item.score}}</button>
+  <mat-card class="main-card" fxFlex.xs="90" fxFlexOffset.xs="5" fxFlex="60" fxFlexOffset="20">
+    <mat-card-content fxLayout="row" class="main-card-content">
+      <div fxFlex.xs="20" fxFlex="10" class="bg-color-primary score" fxLayout="column" fxLayoutAlign="center center">
+        {{item.score}}
+      </div>
+      <div fxFlex.xs="80" fxFlex="90" class="feed-content" fxLayout="column">
+        <div class="title">
+          <a [href]="item.url" target="_blank">{{item.title}}</a>
+        </div>
+        <span fxFlex></span>
+        <div class="infos" fxLayout="row" fxFlex>
+          <a [routerLink]="['/user', item.by]" fxFlex="70">
+            <span class="feed-author">by: {{ item.by }}</span>
+          </a>
+          <a [routerLink]="['/user', item.by]" fxFlex="30" fxLayoutAlign="end">
+            <span [matBadge]="item.kids?.length || 0" matBadgeSize="medium" matBadgeOverlap="false" matBadgePosition="above after" class="feed-comments">Comments</span>
+          </a>      
+        </div>
+      </div>
+    </mat-card-content>
+    <!-- <mat-card-content>
+      <mat-list rowHeight="80px">
+        <mat-grid-tile fxFlex="30">
+          
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="7">
+        <mat-grid-tile fxFlex="70">
           <mat-card class="feed-content">
             <mat-card-header>
               <mat-card-title>
@@ -19,16 +37,16 @@
             </mat-card-header>
             <mat-card-content>
               <a [routerLink]="['/user', item.by]">
-                <span>by: {{ item.by }}</span>
+                <span class="feed-author">by: {{ item.by }}</span>
               </a>
               |
               <a [routerLink]="['/user', item.by]">
-                <span [matBadge]="item.kids?.length || 0" matBadgeOverlap="false" matBadgePosition="above after">Comments</span>
+                <span [matBadge]="item.kids?.length || 0" matBadgeOverlap="false" matBadgePosition="above after" class="feed-comments">Comments</span>
               </a>
             </mat-card-content>
           </mat-card>
         </mat-grid-tile>
       </mat-grid-list>
-    </mat-card-content>
+    </mat-card-content> -->
   </mat-card>
 </div>

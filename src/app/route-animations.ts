@@ -8,11 +8,11 @@ export const routerTransition = trigger('routerTransition', [
     /* 2 */ group([  // block executes in parallel
       query(':enter', [
         style({ transform: 'translateX(100%)' }),
-        animate('0.65s ease-in-out', style({ transform: 'translateX(0%)' }))
+        animate('.35s ease-in-out', style({ transform: 'translateX(0%)' }))
       ], { optional: true }),
       query(':leave', [
         style({ transform: 'translateX(0%)' }),
-        animate('0.65s ease-in-out', style({ transform: 'translateX(-100%)' }))
+        animate('.35s ease-in-out', style({ transform: 'translateX(-100%)' }))
       ], { optional: true }),
     ])
   ])

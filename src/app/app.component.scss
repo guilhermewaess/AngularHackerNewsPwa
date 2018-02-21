@@ -1,0 +1,36 @@
+@import "./theme.scss";
+.cursor-pointer {
+    cursor: pointer;
+}
+.sidemenu-nav {
+    min-width: 180px;
+    background-color: #003780;
+    text-align: center;
+    z-index: 99999999999;
+    a {
+        color: #fff;
+    }
+    mat-list-item.active {  
+        background-color: #004790;
+    }
+}
+
+.app-menu{
+    display: flex;
+    
+    mat-toolbar{
+        max-height: 56px;
+    }
+
+    span{
+        font-weight: 600;
+    }
+
+    .fill-remaining{
+        flex: 1 1 auto;
+    }
+
+    .active{
+      background-color: darken($primary-color, 10%);
+    }
+}
