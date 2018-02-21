@@ -30,16 +30,6 @@
         flex: 1 1 auto;
     }
 
-    .hacker-news-logo{
-        font-size: 20px;
-        
-        img{
-            height: 45px;
-            margin: 0 4px 3px 0;
-            vertical-align: middle;
-        }
-    }
-
     .active{
       background-color: darken($primary-color, 10%);
     }

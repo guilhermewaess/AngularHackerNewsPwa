@@ -1,7 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened class="sidemenu-nav" color="primary" #sidenav mode="side">
+  <mat-sidenav mode="side" class="sidemenu-nav" color="primary" #sidenav mode="side">
     <mat-nav-list>
+      <mat-list-item >
+        <logo></logo>
+      </mat-list-item>
       <mat-list-item routerLinkActive="active">
         <a routerLink="/top">
           <span>Top</span>
@@ -33,12 +36,8 @@
     <nav class="app-menu mat-elevation-z6">
       <mat-toolbar color="primary">
         <mat-icon mat-icon-button (click)="sidenav.toggle()" class="cursor-pointer">menu</mat-icon>
-        <a mat-button href="" class="hacker-news-logo">
-          <img src="../../../assets/img/hnlogo.png" alt="angular">
-          <span color="primary">Hacker News</span>
-        </a>
-
-        <div class="fill-remaining">
+        <logo fxHide.xs></logo>
+        <div fxHide.xs>
           <a mat-button routerLink="/top" routerLinkActive="active">
             <span>Top</span>
           </a>
@@ -55,6 +54,7 @@
             <span>Jobs</span>
           </a>
         </div>
+        <span fxFlex></span>
         <a mat-button href="https://www.github.com/guilhermewaess">GitHub</a>
       </mat-toolbar>
     </nav>

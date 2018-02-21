@@ -11,10 +11,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
