@@ -1,0 +1,15 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+.sidemenu-nav {
+    min-width: 180px;
+    background-color: #003780;
+    text-align: center;
+    
+    mat-list-item{
+        color: #fff;
+    }        
+    mat-list-item.active {  
+        background-color: #004790;
+    }
+}

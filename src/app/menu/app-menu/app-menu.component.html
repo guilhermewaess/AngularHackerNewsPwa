@@ -1,0 +1,25 @@
+<nav class="app-menu mat-elevation-z6">
+  <mat-toolbar color="primary">
+    <mat-icon fxHide.md fxHide.lg fxHide.xl mat-icon-button (click)="sidenav.toggle()" class="cursor-pointer">menu</mat-icon>
+    <logo></logo>
+    <div fxHide.xs fxHide.sm class="menu-links">
+      <a mat-button routerLink="/top" routerLinkActive="active">
+        <span>Top</span>
+      </a>
+      <a mat-button routerLink="/new" routerLinkActive="active">
+        <span>New</span>
+      </a>
+      <a mat-button routerLink="/ask" routerLinkActive="active">
+        <span>Ask</span>
+      </a>
+      <a mat-button routerLink="/show" routerLinkActive="active">
+        <span>Show</span>
+      </a>
+      <a mat-button routerLink="/jobs" routerLinkActive="active">
+        <span>Jobs</span>
+      </a>
+    </div>
+    <span fxFlex></span>
+    <a mat-button href="https://www.github.com/guilhermewaess">GitHub</a>
+  </mat-toolbar>
+</nav>

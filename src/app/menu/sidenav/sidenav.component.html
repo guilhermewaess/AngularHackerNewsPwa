@@ -1,0 +1,28 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="over" class="sidemenu-nav" color="primary" #sidenav>
+    <mat-nav-list>
+      <mat-list-item (click)="sidenav.close()">
+        <logo></logo>
+      </mat-list-item>
+      <mat-list-item routerLink="/new" routerLink="/top" routerLinkActive="active" (click)="sidenav.close()">
+        Top
+      </mat-list-item>
+      <mat-list-item routerLink="/new" routerLinkActive="active" (click)="sidenav.close()">
+        New
+      </mat-list-item>
+      <mat-list-item routerLink="/ask" routerLinkActive="active" (click)="sidenav.close()">
+        Ask
+      </mat-list-item>
+      <mat-list-item routerLink="/show" routerLinkActive="active" (click)="sidenav.close()">
+        Show
+      </mat-list-item>
+      <mat-list-item routerLink="/jobs" routerLinkActive="active" (click)="sidenav.close()">
+        Jobs
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-menu [sidenav]="sidenav"></app-menu>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+@import "./../../theme.scss";
+
+.app-menu{
+  display: flex;
+  
+  mat-toolbar{
+      max-height: 56px;
+  }
+
+  span{
+      font-weight: 600;
+  }
+
+  .menu-links{
+    margin-left: 8px;
+  }
+
+  .active{
+    background-color: darken($primary-color, 10%);
+  }
+}
