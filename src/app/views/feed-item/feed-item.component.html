@@ -10,7 +10,7 @@
         </div>
         <span fxFlex></span>
         <div class="infos" fxLayout="row" fxFlex>
-          <a [routerLink]="['/user', item.by]" fxFlex="70">
+          <a fxFlex="70" (click)="openUserDetailDialog(item.by)">
             <span class="feed-author">by: {{ item.by }}</span>
           </a>
           <a [routerLink]="['/user', item.by]" fxFlex="30" fxLayoutAlign="end">

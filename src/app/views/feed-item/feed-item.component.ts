@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HackerNewsService } from '../../services/hacker-news.service';
+import { MatDialog } from '@angular/material';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
+
 
 @Component({
   selector: 'feed-item',
@@ -12,10 +15,16 @@ export class FeedItemComponent implements OnInit {
   @Input() private itemId;
   public item: Observable<any>;
 
-  constructor(private hackerNewsService: HackerNewsService) { }
+  constructor(private hackerNewsService: HackerNewsService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getItem();
+  }
+
+  openUserDetailDialog(userId) {
+    let dialogRef = this.dialog.open(UserDetailComponent, {
+      data: { userId }
+    })
   }
 
   private getItem() {
