@@ -18,6 +18,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     AngularFireDatabaseModule,
   ],
   declarations: [FeedComponent, FeedItemComponent, UserDetailComponent],
+  entryComponents: [UserDetailComponent],
   providers: [HackerNewsService]
 })
 export class ViewsModule { }
