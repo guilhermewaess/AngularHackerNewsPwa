@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { HackerNewsService } from '../../services/hacker-news.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'user-detail',
@@ -12,14 +13,19 @@ export class UserDetailComponent implements OnInit {
 
   public user: Observable<any>;
 
-  constructor(private hackerNewsService: HackerNewsService, private route: ActivatedRoute) { }
+  constructor(private hackerNewsService: HackerNewsService,
+    private dialogRef: MatDialogRef<UserDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) private dialogData: any) { }
 
   ngOnInit() {
     this.getUser();
   }
 
+  // private getUser() {
+  //   const userId = this.route.snapshot.paramMap.get('userId');
+  //   this.user = this.hackerNewsService.getUser(userId);
+  // };
   private getUser() {
-    const userId = this.route.snapshot.paramMap.get('userId');
-    this.user = this.hackerNewsService.getUser(userId);
+    this.hackerNewsService.getUser(this.dialogData.userId).subscribe(user => this.user = user);
   };
 }

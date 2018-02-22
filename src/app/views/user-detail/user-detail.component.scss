@@ -1,45 +1,21 @@
 @import "./../../theme.scss";
-
+mat-dialog-container{
+  padding: 0;
+}
 .user-detail{
-    height: calc(100vh - 56px);
-
-    .card{
-        padding: 0;
-        
-        .card-header{
-            color: white;
-            padding: 9px;
-            
-            h3{
-                margin: 0;
-                line-height: 1.5;
-            }
-
-            .mat-card-title{
-                margin: 0;
-            }
-        }
-
-        .user-data{
-            margin-bottom: 0;
-
-            .data{
-                padding: 4px;
-            }
-          
-        }
-
-        .card-footer{
-            padding: 10px;
-            color: white;
-
-            .mat-card-title{
-                margin-bottom: 5px;
-            }
-
-            .mat-card-subtitle{
-                color: white;
-            }
-        }
+  .user-title{
+    display: inline-flex;
+    h3{
+      margin: 0;
+      margin-bottom: 12px;
     }
+    .mat-icon{
+      line-height: 1.4;
+    }
+  }
+  .user-data{
+    span{
+      font-weight: bold;
+    }
+  }
 }
