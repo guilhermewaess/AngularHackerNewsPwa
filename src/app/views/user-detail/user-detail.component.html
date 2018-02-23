@@ -3,7 +3,7 @@
     <mat-spinner></mat-spinner>
   </div>
   <div *ngIf="user">
-    <div mat-dialog-title class="user-title">
+    <div mat-dialog-title class="user-title" color="primary" fxLayout="row" fxLayoutAlign="start center">
       <mat-icon>face</mat-icon>
       <h3>
         {{ user.id }}
@@ -25,6 +25,7 @@
       <div [innerHTML]="user.about"></div>
     </mat-dialog-content>
     <mat-dialog-actions>
+      <span fxFlex></span>
       <button mat-raised-button mat-dialog-close color="primary">Close</button>
     </mat-dialog-actions>
   </div>

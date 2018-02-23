@@ -3,19 +3,24 @@ mat-dialog-container{
   padding: 0;
 }
 .user-detail{
-  .user-title{
-    display: inline-flex;
-    h3{
-      margin: 0;
-      margin-bottom: 12px;
+  font-family: 'Open Sans', sans-serif;
+  .mat-dialog-title {
+    margin: -24px;
+    margin-bottom: 14px;
+    background-color: $primary-color;
+    .mat-icon {
+      color: #FFF;
+      margin-left: 12px;
     }
-    .mat-icon{
-      line-height: 1.4;
+    h3 {
+      color: #FFF;
+      padding: 0 12px;
     }
   }
   .user-data{
+    font-weight: 300;
     span{
-      font-weight: bold;
+      font-weight: 600;
     }
   }
 }
