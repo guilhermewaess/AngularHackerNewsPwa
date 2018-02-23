@@ -1,3 +1,9 @@
-<div *ngFor="let id of feedItems | async">
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)">
+</mat-paginator>
+<div *ngFor="let id of feedsShowed">
   <feed-item [itemId]="id"></feed-item>
 </div>
