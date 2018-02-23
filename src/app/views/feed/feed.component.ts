@@ -10,9 +10,8 @@ import { PageEvent } from '@angular/material';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  private totalFeeds: number[];
+  
   private route: Observable<string>;
-  // private feedItems: Observable<any>;
 
   feedsShowed = [];
   length = null;
@@ -31,6 +30,7 @@ export class FeedComponent implements OnInit {
     this.getFeeds();
   }
 
+  // Get feeds
   private getRoute() {
     this.router.data.subscribe(res => this.route = res.feed);
   }
@@ -42,10 +42,10 @@ export class FeedComponent implements OnInit {
 
   private onNewFeeds(feeds) {
     this.length = feeds.length;
-    // this.feedsShowed = feeds.slice(this.currentPage, this.currentPage + this.pageSize);
     this.feedsShowed = feeds.slice(this.startSlice, this.finalSlice);
   }
 
+  // Pagination
   setSliceIndexUp(){
     this.startSlice = this.finalSlice;
     this.finalSlice = this.finalSlice + this.pageSize;
@@ -66,6 +66,7 @@ export class FeedComponent implements OnInit {
     this.getFeeds();
   }
 
+  // Set page size options
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
