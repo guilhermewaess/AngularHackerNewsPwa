@@ -46,7 +46,8 @@
         "/",
         "/jobs",
         "/show",
-        "/ask"
+        "/ask",
+        "/top"
       ],
       "cacheConfig": {
         "maxSize": 100,
