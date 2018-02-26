@@ -1,5 +1,5 @@
 <sidenav-menu>
-  <div [@routerTransition]="getRouterOutletState(outlet)">
+  <div [@routerTransition]="getRouterOutletState(outlet)" fxLayout="column">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </sidenav-menu>
