@@ -1,9 +1,18 @@
-<mat-paginator
-  [length]="length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="onPageChange($event)">
-</mat-paginator>
-<div *ngFor="let id of feedsShowed">
-  <feed-item [itemId]="id"></feed-item>
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+  <div fxLayoutAlign="center center" *ngIf="!feedsShowed.length" class="spinner-wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+  <div *ngIf="feedsShowed.length">
+    <div *ngFor="let id of feedsShowed">
+      <feed-item [itemId]="id"></feed-item>
+    </div>
+  </div>
 </div>

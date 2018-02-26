@@ -7,6 +7,10 @@ body{
     margin: 0;
     background-color: #FAFAFA;
 }
-.mat-paginator-container {
-    padding: 0 0 !important;
+mat-paginator {
+    width: 100%;
+    .mat-paginator-container {
+        padding: 0 0 !important;
+        justify-content: center !important;     
+    }
 }
