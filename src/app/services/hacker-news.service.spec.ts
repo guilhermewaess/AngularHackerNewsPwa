@@ -17,7 +17,7 @@ const helper = {
   }),
 }
 
-fdescribe('HackerNewsService', () => {
+describe('HackerNewsService', () => {
   beforeEach(() => {
     helper.createMocks();
     angularFirebaseStub = helper.createStub();

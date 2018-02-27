@@ -8,8 +8,6 @@ import { routerTransition } from './route-animations';
   animations: [routerTransition]
 })
 export class AppComponent {
-  title = 'app';
-
   public getRouterOutletState(outlet) {
     return outlet.activatedRouteData.state;
   }
