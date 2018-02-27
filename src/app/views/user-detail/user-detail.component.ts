@@ -20,11 +20,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit() {
     this.getUser();
   }
-
-  // private getUser() {
-  //   const userId = this.route.snapshot.paramMap.get('userId');
-  //   this.user = this.hackerNewsService.getUser(userId);
-  // };
+  
   private getUser() {
     this.hackerNewsService.getUser(this.dialogData.userId).subscribe(user => this.user = user);
   };

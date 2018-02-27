@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
-let component;
 
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
+  let component;
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
