@@ -3,24 +3,66 @@ import { Observable } from 'rxjs/Observable';
 
 let service: HackerNewsService;
 let angularFirebaseStub;
+let listReturnMock;
+let objectReturnMock;
 
-describe('HackerNewsService', () => {
+const helper = {
+  createMocks() {
+    listReturnMock = [1, 2, 3];
+    objectReturnMock = { val: 1 };
+  },
+  createStub: () => ({
+    list: jasmine.createSpy().and.returnValue({ valueChanges: () => Observable.of(listReturnMock) }),
+    object: jasmine.createSpy().and.returnValue({ valueChanges: () => Observable.of(objectReturnMock) }),
+  }),
+}
+
+fdescribe('HackerNewsService', () => {
   beforeEach(() => {
-    angularFirebaseStub = {
-      list: jasmine.createSpy().and.returnValue({ valueChanges: () => Observable.of([1, 2, 3]) })
-    };
+    helper.createMocks();
+    angularFirebaseStub = helper.createStub();
     service = new HackerNewsService(angularFirebaseStub);
   });
 
-  fdescribe('getFeed', () => {
+  describe('getFeed', () => {
+    let feedUrl;
     beforeEach(() => {
+      feedUrl = 'feed1';
     });
     it('should call fireBase with arguments', () => {
-      service.getFeed('feed1');
-      expect(angularFirebaseStub.list).toHaveBeenCalledWith('/v0/feed1');
+      service.getFeed(feedUrl);
+      expect(angularFirebaseStub.list).toHaveBeenCalledWith(`/v0/${feedUrl}`);
     });
     it('should return firebase valueChanges', () => {
-      service.getFeed('feed1').subscribe(result => expect(result).toEqual([1, 2, 3]));
+      service.getFeed(feedUrl).subscribe(result => expect(result).toEqual(listReturnMock));
+    });
+  });
+
+  describe('getItem', () => {
+    let itemId;
+    beforeEach(() => {
+      itemId = '1234';
+    });
+    it('should call fireBase with arguments', () => {
+      service.getItem(itemId);
+      expect(angularFirebaseStub.object).toHaveBeenCalledWith(`/v0/item/${itemId}`);
+    });
+    it('should return firebase valueChanges', () => {
+      service.getItem(itemId).subscribe(result => expect(result).toEqual(objectReturnMock));
+    });
+  });
+
+  describe('getUser', () => {
+    let userId;
+    beforeEach(() => {
+      userId = 'user1';
+    });
+    it('should call fireBase with arguments', () => {
+      service.getUser(userId);
+      expect(angularFirebaseStub.object).toHaveBeenCalledWith(`/v0/user/${userId}`);
+    });
+    it('should return firebase valueChanges', () => {
+      service.getUser(userId).subscribe(result => expect(result).toEqual(objectReturnMock));
     });
   });
 });
