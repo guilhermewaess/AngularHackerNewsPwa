@@ -12,7 +12,7 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 })
 export class FeedItemComponent implements OnInit {
 
-  @Input() private itemId;
+  @Input() itemId;
   public item: Observable<any>;
 
   constructor(private hackerNewsService: HackerNewsService, public dialog: MatDialog) { }
