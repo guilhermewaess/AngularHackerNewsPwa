@@ -14,7 +14,7 @@ export class FeedComponent implements OnInit {
   private route: Observable<string>;
 
   feedsShowed = [];
-  length = null;
+  feedsLength = null;
   pageSizeOptions = [5, 10, 25, 100];
 
   pageSize = 5;
@@ -41,19 +41,20 @@ export class FeedComponent implements OnInit {
   }
 
   private onNewFeeds(feeds) {
-    this.length = feeds.length;
+    this.feedsLength = feeds.length;
     this.feedsShowed = feeds.slice(this.startSlice, this.finalSlice);
   }
 
   // Pagination
-  setSliceIndexUp(){
+  private setSliceIndexUp(){
     this.startSlice = this.finalSlice;
     this.finalSlice = this.finalSlice + this.pageSize;
   }
-  setSliceIndexDown(){
+  private setSliceIndexDown(){
     this.finalSlice = this.startSlice;
     this.startSlice = this.startSlice - this.pageSize;
   }
+
   onPageChange(event) {
     this.pageSize = event.pageSize;
     if (event.pageIndex < this.currentPage) {
@@ -65,10 +66,4 @@ export class FeedComponent implements OnInit {
     this.currentPage = event.pageIndex;
     this.getFeeds();
   }
-
-  // Set page size options
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  }
-
 }
