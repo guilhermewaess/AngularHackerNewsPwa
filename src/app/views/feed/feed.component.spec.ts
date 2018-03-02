@@ -9,7 +9,7 @@ import { MaterialModule } from '../../material/material.module';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-fdescribe('FeedComponent', () => {
+describe('FeedComponent', () => {
   let component: FeedComponent;
   let fixture: ComponentFixture<FeedComponent>;
   let activatedRouteMock;
@@ -28,7 +28,7 @@ fdescribe('FeedComponent', () => {
       }
     },
     createFeeds() {
-      feeds = new BehaviorSubject(new Array(10));
+      feeds = new BehaviorSubject(new Array(20));
     }
   };
 
@@ -94,7 +94,9 @@ fdescribe('FeedComponent', () => {
 
     describe('When new feed result arrive', () => {
       beforeEach(() => {
-        feeds.next([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        feeds.next([
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+        ]);
       });
       it('should update feedsLength', () => {
         let feedsLength;
@@ -115,21 +117,21 @@ fdescribe('FeedComponent', () => {
       event = { pageSize: 5, pageIndex: 0 };
       hackerNewsServiceStub.getFeed.calls.reset();
 
-      component.currentPage = 0;
-      component.startSlice = 5;
-      component.finalSlice = 10;
+      component.currentPage = 1;
+      component.startSlice = 10;
+      component.finalSlice = 15;
     });
     describe('and the event is going to next page', () => {
       beforeEach(() => {
-        event.pageIndex = 1;
+        event.pageIndex = 2;
 
         component.onPageChange(event);
       });
       it('should update startSlice with current finalSlice', () => {
-        expect(component.startSlice).toEqual(10);
+        expect(component.startSlice).toEqual(15);
       });
-      it('should update finalSlice with currentSlice plus pageSize', () => {
-        expect(component.finalSlice).toEqual(10 + event.pageSize);
+      it('should update finalSlice with currentFinalSlice plus pageSize', () => {
+        expect(component.finalSlice).toEqual(15 + event.pageSize);
       });
       it('should update currentePage with event pageIndex', () => {
         expect(component.currentPage).toEqual(event.pageIndex);
@@ -138,5 +140,25 @@ fdescribe('FeedComponent', () => {
         expect(hackerNewsServiceStub.getFeed).toHaveBeenCalledTimes(1);
       });
     });
+    describe('and the event is going to previous page', () => {
+      beforeEach(() => {
+        event.pageIndex = 0;
+
+        component.onPageChange(event);
+      });
+      it('should update finalSlice with startSlice', () => {
+        expect(component.finalSlice).toEqual(10);
+      });
+      it('should update startSlice with current startSlice less pageSize', () => {
+        expect(component.startSlice).toEqual(10 - event.pageSize);
+      });
+      it('should update currentePage with event pageIndex', () => {
+        expect(component.currentPage).toEqual(event.pageIndex);
+      });
+      it('should call getFeeds for update', () => {
+        expect(hackerNewsServiceStub.getFeed).toHaveBeenCalledTimes(1);
+      });
+    });
+
   });
 });
